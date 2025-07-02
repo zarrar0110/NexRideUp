@@ -1,6 +1,6 @@
 @extends('layouts.driver')
 
-@section('title', 'Dashboard')
+@section('title', 'Driver Dashboard - NexRide')
 
 @section('content')
 <style>

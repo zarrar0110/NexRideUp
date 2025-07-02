@@ -8,7 +8,16 @@
             <tr><th>From</th><th>To</th><th>Driver</th><th>Passenger</th><th>Status</th><th>Actions</th></tr>
         </thead>
         <tbody>
-            <tr><td>Location A</td><td>Location B</td><td>Jane Doe</td><td>John Smith</td><td>Ongoing</td><td><button class="btn btn-sm btn-danger">Force Cancel</button></td></tr>
+            @foreach($trips as $trip)
+            <tr>
+                <td>{{ $trip->tripRequest->pickup_location ?? 'N/A' }}</td>
+                <td>{{ $trip->tripRequest->dropoff_location ?? 'N/A' }}</td>
+                <td>{{ $trip->driver->user->name ?? 'N/A' }}</td>
+                <td>{{ $trip->tripRequest->passenger->user->name ?? 'N/A' }}</td>
+                <td>{{ ucfirst($trip->status) }}</td>
+                <td><button class="btn btn-sm btn-danger">Force Cancel</button></td>
+            </tr>
+            @endforeach
         </tbody>
     </table>
 </div>

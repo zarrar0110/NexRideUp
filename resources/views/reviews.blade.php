@@ -8,7 +8,11 @@
 </head>
 <body>
     <div class="container mt-5">
-        <a href="/passenger/dashboard" class="btn btn-secondary mb-3"><i class="fas fa-arrow-left me-1"></i> Back to Dashboard</a>
+        @php
+            $role = auth()->check() ? auth()->user()->role : null;
+            $dashboardUrl = $role === 'admin' ? '/admin/dashboard' : ($role === 'driver' ? '/driver/dashboard' : ($role === 'passenger' ? '/passenger/dashboard' : '/'));
+        @endphp
+        <a href="{{ $dashboardUrl }}" class="btn btn-secondary mb-3"><i class="fas fa-arrow-left me-1"></i> Back to Dashboard</a>
         <h2>All Reviews</h2>
         <table class="table table-bordered">
             <thead>

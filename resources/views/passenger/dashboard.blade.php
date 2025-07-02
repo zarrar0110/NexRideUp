@@ -1,6 +1,6 @@
 @extends('layouts.passenger')
 
-@section('title', 'Dashboard')
+@section('title', 'Passenger Dashboard - NexRide')
 
 @section('content')
 <style>

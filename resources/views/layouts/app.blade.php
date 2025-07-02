@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ride Sharing Platform</title>
+    <title>NexRide Platform</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
@@ -57,7 +57,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/">Ride Sharing</a>
+        <a class="navbar-brand" href="/" style="font-weight: bold; font-size: 2rem; background: linear-gradient(90deg, #ff512f 0%, #dd2476 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 1px 1px 8px rgba(221,36,118,0.2); letter-spacing: 2px;">NexRide</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -140,10 +140,10 @@
         <button type="button" data-bs-target="#mainSlider" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
     <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="https://images.unsplash.com/photo-1511918984145-48de785d4c4e?auto=format&fit=crop&w=900&q=80" class="d-block w-100" style="max-height:220px; object-fit:cover;" alt="Welcome Slide">
+        <div class="carousel-item active" style="background: linear-gradient(90deg, #667eea 0%, #764ba2 100%); min-height:220px;">
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=900&q=80" class="d-block w-100" style="max-height:220px; object-fit:cover; min-height:220px;" alt="Welcome Slide" onerror="this.style.display='none';this.parentNode.style.background='#667eea';">
             <div class="carousel-caption d-none d-md-block">
-                <h5>Welcome to Ride Sharing!</h5>
+                <h5>Welcome to NexRide!</h5>
                 <p>Book safe, reliable rides anytime.</p>
             </div>
         </div>

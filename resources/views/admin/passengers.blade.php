@@ -8,7 +8,18 @@
             <tr><th>Name</th><th>Email</th><th>Status</th><th>Actions</th></tr>
         </thead>
         <tbody>
-            <tr><td>John Smith</td><td>john@example.com</td><td>Active</td><td><button class="btn btn-sm btn-primary">Edit</button> <button class="btn btn-sm btn-danger">Delete</button> <button class="btn btn-sm btn-warning">Suspend</button></td></tr>
+            @foreach($passengers as $passenger)
+            <tr>
+                <td>{{ $passenger->user->name ?? 'N/A' }}</td>
+                <td>{{ $passenger->user->email ?? 'N/A' }}</td>
+                <td>Active</td>
+                <td>
+                    <button class="btn btn-sm btn-primary">Edit</button>
+                    <button class="btn btn-sm btn-danger">Delete</button>
+                    <button class="btn btn-sm btn-warning">Suspend</button>
+                </td>
+            </tr>
+            @endforeach
         </tbody>
     </table>
 </div>

@@ -8,7 +8,15 @@
             <tr><th>Driver</th><th>Amount</th><th>Date</th><th>Status</th><th>Actions</th></tr>
         </thead>
         <tbody>
-            <tr><td>Jane Doe</td><td>$100</td><td>2024-06-28</td><td>Pending</td><td><button class="btn btn-sm btn-success">Payout</button></td></tr>
+            @foreach($payments as $payment)
+            <tr>
+                <td>{{ $payment->trip->driver->user->name ?? 'N/A' }}</td>
+                <td>${{ number_format($payment->amount, 2) }}</td>
+                <td>{{ $payment->created_at ? $payment->created_at->format('Y-m-d') : 'N/A' }}</td>
+                <td>{{ $payment->paid_at ? 'Paid' : 'Pending' }}</td>
+                <td><button class="btn btn-sm btn-success">Payout</button></td>
+            </tr>
+            @endforeach
         </tbody>
     </table>
     <div class="mt-4">

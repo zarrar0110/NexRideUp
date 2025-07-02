@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Admin Dashboard')
+@section('title', 'Admin Dashboard - NexRide')
 
 @section('content')
 <div class="row mb-4">
@@ -8,7 +8,7 @@
         <div class="card text-center">
             <div class="card-body">
                 <h6 class="text-muted">Total Rides</h6>
-                <h3>123</h3>
+                <h3>{{ $completedTrips ?? 0 }}</h3>
             </div>
         </div>
     </div>
@@ -16,7 +16,7 @@
         <div class="card text-center">
             <div class="card-body">
                 <h6 class="text-muted">Active Users</h6>
-                <h3>45</h3>
+                <h3>{{ $activeDrivers ?? 0 }}</h3>
             </div>
         </div>
     </div>
@@ -24,7 +24,7 @@
         <div class="card text-center">
             <div class="card-body">
                 <h6 class="text-muted">Total Earnings</h6>
-                <h3>$12,345</h3>
+                <h3>${{ number_format($completedRevenue ?? 0, 2) }}</h3>
             </div>
         </div>
     </div>

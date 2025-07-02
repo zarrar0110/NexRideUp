@@ -3,7 +3,7 @@
 @section('content')
 <div class="hero-section">
     <div class="container text-center">
-        <h1 class="display-4 fw-bold mb-4">Welcome to Ride Sharing</h1>
+        <h1 class="display-4 fw-bold mb-4">Welcome to NexRide</h1>
         <p class="lead mb-5">Connect with drivers and passengers for safe, convenient rides</p>
     </div>
 </div>
@@ -22,7 +22,7 @@
                         <a href="/register?role=passenger" class="btn btn-success">Join as Passenger</a>
                         @auth
                             @if(auth()->user()->role === 'passenger')
-                                <a href="/passenger/dashboard" class="btn btn-outline-success">Passenger Dashboard</a>
+                        <a href="/passenger/dashboard" class="btn btn-outline-success">Passenger Dashboard</a>
                             @else
                                 <a href="/passenger/dashboard" class="btn btn-outline-success disabled" title="You are logged in as a {{ ucfirst(auth()->user()->role) }}">Passenger Dashboard</a>
                             @endif
@@ -46,7 +46,7 @@
                         <a href="/register?role=driver" class="btn btn-primary">Join as Driver</a>
                         @auth
                             @if(auth()->user()->role === 'driver')
-                                <a href="/driver/dashboard" class="btn btn-outline-primary">Driver Dashboard</a>
+                        <a href="/driver/dashboard" class="btn btn-outline-primary">Driver Dashboard</a>
                             @else
                                 <a href="/driver/dashboard" class="btn btn-outline-primary disabled" title="You are logged in as a {{ ucfirst(auth()->user()->role) }}">Driver Dashboard</a>
                             @endif
