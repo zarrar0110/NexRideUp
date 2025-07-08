@@ -68,12 +68,10 @@ class PassengerController extends Controller
         $passenger = $user->passenger;
 
         $validated = $request->validate([
-            'pickup_location' => 'required|string|max:255',
-            'dropoff_location' => 'required|string|max:255',
-            'preferred_time' => 'required|date|after:now',
-            'seats' => 'required|integer|min:1|max:6',
-            'payment_method' => 'required|string|in:cash,card,mobile_money,digital_wallet',
-            'notes' => 'nullable|string|max:500',
+            'pickup_location' => 'required|string',
+            'dropoff_location' => 'required|string',
+            'seats' => 'required|integer',
+            'payment_method' => 'required|string',
         ]);
 
         // Calculate estimated fare based on distance (simplified calculation)
@@ -84,7 +82,13 @@ class PassengerController extends Controller
         $validated['request_time'] = now();
         $validated['estimated_fare'] = $estimatedFare;
 
-        TripRequest::create($validated);
+        $tripRequest = TripRequest::create($validated);
+
+        // Use notes for temporary display if needed
+        $notes = $request->input('notes');
+
+        // Example: Pass notes to a confirmation view (if you have one)
+        // return view('trip_request_confirmation', compact('tripRequest', 'notes'));
 
         return redirect('/passenger/trip-requests')->with('success', 'Trip request created successfully!');
     }
@@ -213,7 +217,11 @@ class PassengerController extends Controller
             }
         }
 
-        $passenger = Passenger::create($validated);
+        $passenger = Passenger::create([
+            'id' => Auth::id(),
+            'phone' => $validated['phone'],
+            'address' => $validated['address'],
+        ]);
         
         if ($request->expectsJson()) {
             return response()->json([

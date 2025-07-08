@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Driver extends Model
 {
     protected $fillable = [
+        'id',
         'license_number',
         'experience_years',
         'phone',
@@ -15,12 +16,14 @@ class Driver extends Model
         'longitude',
     ];
 
+    protected $table = 'drivers';
+
     /**
      * Get the user that owns the driver profile.
      */
     public function user()
     {
-        return $this->belongsTo(User::class, 'id');
+        return $this->belongsTo(User::class, 'id', 'id');
     }
 
     /**

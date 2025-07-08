@@ -19,6 +19,9 @@ Route::get('/register', [App\Http\Controllers\UserController::class, 'showRegist
 Route::post('/register', [App\Http\Controllers\UserController::class, 'register'])->name('register');
 Route::post('/logout', [App\Http\Controllers\UserController::class, 'logout'])->name('logout');
 
+// Unified dashboard redirect route
+Route::get('/dashboard', [App\Http\Controllers\UserController::class, 'redirectToDashboard'])->middleware('auth')->name('dashboard');
+
 // Passenger routes
 Route::middleware(['auth', 'role:passenger'])->prefix('passenger')->name('passenger.')->group(function () {
     Route::get('/dashboard', [App\Http\Controllers\PassengerController::class, 'dashboard'])->name('dashboard');

@@ -14,6 +14,8 @@ class Review extends Model
         'comment',
     ];
 
+    protected $table = 'reviews';
+
     /**
      * Get the trip that this review is for.
      */

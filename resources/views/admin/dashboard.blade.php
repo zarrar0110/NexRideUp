@@ -267,28 +267,28 @@
                     <div class="col-md-3 text-center mb-3">
                         <div class="border rounded p-3">
                             <i class="fas fa-user fa-2x text-success mb-2"></i>
-                            <h4>{{ $passengerCount ?? 0 }}</h4>
+                            <h4>{{ $totalPassengers ?? 0 }}</h4>
                             <p class="text-muted mb-0">Passengers</p>
                         </div>
                     </div>
                     <div class="col-md-3 text-center mb-3">
                         <div class="border rounded p-3">
                             <i class="fas fa-car fa-2x text-primary mb-2"></i>
-                            <h4>{{ $driverCount ?? 0 }}</h4>
+                            <h4>{{ $totalDrivers ?? 0 }}</h4>
                             <p class="text-muted mb-0">Drivers</p>
                         </div>
                     </div>
                     <div class="col-md-3 text-center mb-3">
                         <div class="border rounded p-3">
                             <i class="fas fa-car-side fa-2x text-info mb-2"></i>
-                            <h4>{{ $vehicleCount ?? 0 }}</h4>
+                            <h4>{{ $totalVehicles ?? 0 }}</h4>
                             <p class="text-muted mb-0">Vehicles</p>
                         </div>
                     </div>
                     <div class="col-md-3 text-center mb-3">
                         <div class="border rounded p-3">
                             <i class="fas fa-star fa-2x text-warning mb-2"></i>
-                            <h4>{{ $reviewCount ?? 0 }}</h4>
+                            <h4>{{ $totalReviews ?? 0 }}</h4>
                             <p class="text-muted mb-0">Reviews</p>
                         </div>
                     </div>

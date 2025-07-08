@@ -122,9 +122,12 @@
                             </a>
                         </li>
                         <li class="nav-item mt-3">
-                            <a class="nav-link text-warning" href="/logout">
+                            <a href="#" class="nav-link text-warning" onclick="event.preventDefault(); document.getElementById('admin-logout-form').submit();">
                                 <i class="fas fa-sign-out-alt me-2"></i> Logout
                             </a>
+                            <form id="admin-logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
                         </li>
                     </ul>
                 </div>

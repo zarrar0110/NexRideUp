@@ -16,6 +16,8 @@ class Vehicle extends Model
         'capacity',
     ];
 
+    protected $table = 'vehicles';
+
     /**
      * Get the driver that owns the vehicle.
      */

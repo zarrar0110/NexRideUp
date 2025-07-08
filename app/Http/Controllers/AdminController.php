@@ -28,6 +28,11 @@ class AdminController extends Controller
             $q->where('status', 'completed');
         })->sum('amount');
         $completedRevenue = $completedRevenueRaw * 0.2;
+        // System overview counts
+        $totalPassengers = \App\Models\Passenger::count();
+        $totalDrivers = \App\Models\Driver::count();
+        $totalVehicles = \App\Models\Vehicle::count();
+        $totalReviews = \App\Models\Review::count();
         // Recent activity: latest 5 from users, trips, payments
         $recentUsers = User::orderByDesc('created_at')->limit(5)->get()->map(function($u) {
             return (object) [
@@ -66,6 +71,10 @@ class AdminController extends Controller
             'completedRevenue',
             'recentActivity',
             'pendingTripRequests',
+            'totalPassengers',
+            'totalDrivers',
+            'totalVehicles',
+            'totalReviews',
         ));
     }
     public function users() {

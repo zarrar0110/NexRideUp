@@ -318,7 +318,7 @@ class DriverController extends Controller
         }
 
         $driver = Driver::create([
-            'id' => $validated['user_id'],
+            'id' => Auth::id(),
             'license_number' => $validated['license_number'],
             'experience_years' => $validated['experience_years'],
             'phone' => $validated['phone'],

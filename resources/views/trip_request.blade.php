@@ -480,16 +480,21 @@
             document.body.style.cursor = 'default';
         }
 
-        // Reverse geocoding (simplified - in production, use a proper geocoding service)
+        // Reverse geocoding using OpenStreetMap Nominatim API
         function reverseGeocode(lat, lng, callback) {
-            // This is a simplified version. In production, you'd use a service like:
-            // - Google Maps Geocoding API
-            // - OpenStreetMap Nominatim
-            // - MapBox Geocoding API
-            
-            // For demo purposes, we'll create a simple address
-            const address = `Location at ${lat.toFixed(6)}, ${lng.toFixed(6)}`;
-            callback(address);
+            const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`;
+            fetch(url, { headers: { 'Accept-Language': 'en' } })
+                .then(response => response.json())
+                .then(data => {
+                    if (data && data.display_name) {
+                        callback(data.display_name);
+                    } else {
+                        callback(`Address not found (${lat.toFixed(6)}, ${lng.toFixed(6)})`);
+                    }
+                })
+                .catch(() => {
+                    callback(`Address not found (${lat.toFixed(6)}, ${lng.toFixed(6)})`);
+                });
         }
 
         // Close dropdowns when clicking outside

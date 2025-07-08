@@ -150,4 +150,28 @@ class UserController extends Controller
         
         return redirect('/')->with('success', 'Logged out successfully!');
     }
+
+    /**
+     * Redirect authenticated user to their appropriate dashboard based on their user table record and profile.
+     */
+    public function redirectToDashboard()
+    {
+        $user = Auth::user();
+
+        if ($user->role === 'driver' && $user->driver) {
+            return redirect('/driver/dashboard');
+        } elseif ($user->role === 'passenger' && $user->passenger) {
+            return redirect('/passenger/dashboard');
+        } elseif ($user->role === 'admin') {
+            return redirect('/admin/dashboard');
+        } else {
+            // If profile is incomplete, redirect to profile completion
+            if ($user->role === 'driver') {
+                return redirect('/register-driver');
+            } elseif ($user->role === 'passenger') {
+                return redirect('/register-passenger');
+            }
+            return redirect('/')->with('error', 'Dashboard not available.');
+        }
+    }
 }

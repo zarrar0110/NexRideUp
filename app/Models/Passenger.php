@@ -11,7 +11,7 @@ class Passenger extends Model
      */
     public function user()
     {
-        return $this->belongsTo(User::class, 'id');
+        return $this->belongsTo(User::class, 'id', 'id');
     }
 
     /**
@@ -41,4 +41,6 @@ class Passenger extends Model
     protected $fillable = [
         'id',
     ];
+
+    protected $table = 'passengers';
 }
